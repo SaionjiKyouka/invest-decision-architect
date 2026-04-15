@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PortfolioInput",
+  "type": "object",
+  "required": ["capital"],
+  "properties": {
+    "capital": { "type": "number" },
+    "monthly_contribution": { "type": ["number", "null"] },
+    "age": { "type": ["integer", "null"] },
+    "risk_tolerance": { "type": ["string", "null"] },
+    "horizon_years": { "type": ["integer", "null"] },
+    "needs_income": { "type": ["boolean", "null"] },
+    "account_type": { "type": ["string", "null"] },
+    "preferred_market": { "type": ["string", "null"] }
+  },
+  "additionalProperties": true
+}
