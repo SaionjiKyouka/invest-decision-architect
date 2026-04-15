@@ -1,0 +1,64 @@
+version: 1
+adapter: stock_data
+purpose: Provide normalized stock data for valuation, quality, and risk analysis.
+input:
+  required:
+    - ticker
+  optional:
+    - market
+    - currency
+output:
+  identity:
+    - name
+    - ticker
+    - market
+    - currency
+    - sector
+    - industry
+  market_data:
+    - price
+    - market_cap
+    - enterprise_value
+    - avg_daily_volume
+    - week_52_high
+    - week_52_low
+  valuation:
+    - pe_ttm
+    - pb
+    - ps_ttm
+    - ev_ebit
+    - ev_ebitda
+    - fcf_yield
+  profitability:
+    - gross_margin
+    - operating_margin
+    - net_margin
+    - roe
+    - roic
+  balance_sheet:
+    - debt_to_equity
+    - net_debt_to_ebitda
+    - interest_coverage
+  cashflow:
+    - operating_cash_flow_ttm
+    - free_cash_flow_ttm
+  growth:
+    - revenue_cagr_3y
+    - revenue_cagr_5y
+    - eps_cagr_3y
+    - eps_cagr_5y
+  capital_allocation:
+    - dividend_record
+    - buyback_record
+  risk:
+    - beta
+    - max_drawdown_5y
+    - volatility_3y
+rules:
+  - Missing fields must be returned as null.
+  - Do not synthesize unavailable data.
+  - Timestamp every payload.
+metadata:
+  - source_name
+  - source_timestamp
+  - confidence_level
