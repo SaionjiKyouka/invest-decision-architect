@@ -1,0 +1,49 @@
+version: 1
+adapter: fund_data
+purpose: Provide normalized fund and ETF data for structure, cost, and risk analysis.
+input:
+  required:
+    - ticker_or_name
+  optional:
+    - market
+    - asset_class
+output:
+  identity:
+    - fund_name
+    - ticker
+    - domicile
+    - asset_class
+    - strategy
+    - benchmark
+  cost_and_size:
+    - expense_ratio
+    - aum
+    - avg_daily_volume
+    - bid_ask_spread_estimate
+  portfolio_structure:
+    - top_holdings
+    - sector_weights
+    - country_weights
+    - duration
+    - yield
+  performance:
+    - total_return_1y
+    - total_return_3y
+    - total_return_5y
+    - tracking_error
+  risk:
+    - volatility_3y
+    - max_drawdown_5y
+    - concentration_score
+  operations:
+    - inception_date
+    - issuer
+    - distribution_policy
+rules:
+  - Missing fields must be returned as null.
+  - Holdings data should include timestamp.
+  - Historical performance should specify calculation window.
+metadata:
+  - source_name
+  - source_timestamp
+  - confidence_level
