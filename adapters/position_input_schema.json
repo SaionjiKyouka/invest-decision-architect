@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PositionInput",
+  "type": "object",
+  "required": ["ticker"],
+  "properties": {
+    "ticker": { "type": "string" },
+    "buy_price": { "type": ["number", "null"] },
+    "buy_date": { "type": ["string", "null"], "format": "date" },
+    "thesis": { "type": ["string", "null"] },
+    "current_position_pct": { "type": ["number", "null"] },
+    "max_drawdown_tolerance": { "type": ["number", "null"] },
+    "market": { "type": ["string", "null"] }
+  },
+  "additionalProperties": true
+}
